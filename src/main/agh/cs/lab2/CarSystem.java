@@ -1,5 +1,7 @@
 package agh.cs.lab2;
 
+import java.util.ArrayList;
+
 public class CarSystem {
 
     public static void main(String args[]){
@@ -23,6 +25,13 @@ public class CarSystem {
         }*/
 
         Car car = new Car();
-        System.out.println(car.position);
+
+        OptionParser optionparser = new OptionParser();
+        ArrayList<MoveDirection> movedirection;
+        movedirection = optionparser.parse(args);
+        for(int i = 0; i < movedirection.size(); i++){
+            car.move(movedirection.get(i));
+        }
+        System.out.println(car);
     }
 }
