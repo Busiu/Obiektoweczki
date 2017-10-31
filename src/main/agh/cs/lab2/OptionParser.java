@@ -1,12 +1,14 @@
 package agh.cs.lab2;
 
-import java.util.*;
-import static agh.cs.lab2.MoveDirection.*;
+import java.util.ArrayList;
+
+import static agh.cs.lab2.MoveDirection.Backward;
+import static agh.cs.lab2.MoveDirection.Forward;
 
 
-private class OptionParser {
+public class OptionParser {
 
-    private ArrayList<MoveDirection> parse(String string[]){
+    public ArrayList<MoveDirection> parse(String string[]){
         ArrayList <MoveDirection> result;
         result = new ArrayList<MoveDirection>();
         for(int i = 0; i < string.length; i++){

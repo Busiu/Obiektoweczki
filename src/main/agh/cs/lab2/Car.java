@@ -1,26 +1,51 @@
 package agh.cs.lab2;
 
-import static agh.cs.lab2.MapDirection.*;
+import static agh.cs.lab2.MapDirection.North;
 
-public class Car {
+public class Car{
 
     //FIELDS
     private Position position;
     private MapDirection mapdirection;
 
     //CONSTRUCTOR
-    private Car(){
-        this.position = new Position(2,2);
-        mapdirection = North;
+    public Car(IWorldMap map){
+        if(map.canMoveTo(new Position(2,2))){
+            this.position = new Position(2,2);
+            mapdirection = North;
+        }
+    }
+
+    public Car(IWorldMap map, int x, int y){
+        if(map.canMoveTo(new Position(x, y))){
+            this.position = new Position(x, y);
+            mapdirection = North;
+        }
     }
 
     //FUNCTIONS
     @Override
     public String toString(){
-        return position.toString() + " " + mapdirection.toString();
+        switch(this.mapdirection){
+            case North:{
+                return "N";
+            }
+            case South:{
+                return "S";
+            }
+            case West:{
+                return "W";
+            }
+            case East:{
+                return "E";
+            }
+            default: { return "NO sry, ale nie wbijesz"; }
+        }
     }
 
-    private void move(MoveDirection direction){
+    public Position getPosition() { return this.position; }
+
+    public void move(MoveDirection direction){
         switch(direction){
             case Left:
                 this.mapdirection = this.mapdirection.previous();
