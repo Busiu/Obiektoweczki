@@ -33,15 +33,29 @@ public class CarSystem {
             car.move(movedirection.get(i));
         }
         System.out.println(car);
-    }*/
+    }
 
-        ArrayList<MoveDirection> directions = new OptionParser().parse(args);
+        //ArrayList<MoveDirection> directions = new OptionParser().parse(args);
         IWorldMap map = new RectangularMap(10, 5);
         map.place(new Car(map));
         map.place(new Car(map, 3, 4));
         map.place(new Car(map, 5, 5));
         map.place(new Car(map, 8, 3));
         //map.run(directions);
+        System.out.println(map);*/
+
+        ArrayList<HayStack> hayStacks = new ArrayList<>();
+        hayStacks.add(new HayStack(new Position(-4,-4)));
+        hayStacks.add(new HayStack(new Position(7,7)));
+        hayStacks.add(new HayStack(new Position(3,6)));
+        hayStacks.add(new HayStack(new Position(2,0)));
+        IWorldMap map = new UnboundedMap(hayStacks);
+        map.place(new Car(map));
+        map.place(new Car(map, 3, 4));
+        map.place(new Car(map, 5, 5));
+        map.place(new Car(map, 8, 3));
+
         System.out.println(map);
+
     }
 }
