@@ -3,8 +3,8 @@ package agh.cs.lab2;
 public class Position {
 
     //FIELDS
-    int x;
-    int y;
+    public int x;
+    public int y;
 
 
     //CONSTRUCTOR
@@ -15,7 +15,10 @@ public class Position {
     }
 
 
-    //FUNCTIONS
+    //METHODS
+    public int getx(){ return x; }
+    public int gety(){ return y; }
+
     public String toString(){
 
         return "(" + this.x + "," + this.y + ")";
